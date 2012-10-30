@@ -1,0 +1,127 @@
+# 
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "error:smtp.server:"
+msgid ""
+"SMTP Test Connection Details:\n"
+"%s"
+msgstr ""
+"Detalls test connexió SMTP:\n"
+"%s"
+
+msgctxt "error:smtp.server:"
+msgid "SMTP Test Connection Failed."
+msgstr "La connexió SMTP ha fallat."
+
+msgctxt "error:smtp.server:"
+msgid "SMTP Test Connection Was Successful"
+msgstr "La connexió SMTP s'ha realitzat correctament."
+
+msgctxt "field:smtp.server,create_date:"
+msgid "Create Date"
+msgstr "Data de creació"
+
+msgctxt "field:smtp.server,create_uid:"
+msgid "Create User"
+msgstr "Usuari de creació"
+
+msgctxt "field:smtp.server,default:"
+msgid "Default"
+msgstr "Per defecte"
+
+msgctxt "field:smtp.server,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:smtp.server,name:"
+msgid "Name"
+msgstr "Nom"
+
+msgctxt "field:smtp.server,rec_name:"
+msgid "Name"
+msgstr "Nom"
+
+msgctxt "field:smtp.server,smtp_password:"
+msgid "Password"
+msgstr "Contrasenya"
+
+msgctxt "field:smtp.server,smtp_port:"
+msgid "Port"
+msgstr "Port"
+
+msgctxt "field:smtp.server,smtp_server:"
+msgid "Server"
+msgstr "Servidor"
+
+msgctxt "field:smtp.server,smtp_ssl:"
+msgid "SSL"
+msgstr "SSL"
+
+msgctxt "field:smtp.server,smtp_tls:"
+msgid "TLS"
+msgstr "TLS"
+
+msgctxt "field:smtp.server,smtp_user:"
+msgid "User"
+msgstr "Usuari"
+
+msgctxt "field:smtp.server,state:"
+msgid "State"
+msgstr "Estat"
+
+msgctxt "field:smtp.server,write_date:"
+msgid "Write Date"
+msgstr "Data modificació"
+
+msgctxt "field:smtp.server,write_uid:"
+msgid "Write User"
+msgstr "Usuari modificació"
+
+msgctxt "model:ir.action,name:act_server_form"
+msgid "SMTP"
+msgstr "SMTP"
+
+msgctxt "model:ir.ui.menu,name:menu_server_form"
+msgid "SMTP"
+msgstr "SMTP"
+
+msgctxt "model:ir.ui.menu,name:menu_smtp"
+msgid "SMTP Servers"
+msgstr "Servidors SMTP"
+
+msgctxt "model:res.group,name:group_smtp_admin"
+msgid "SMTP Administration"
+msgstr "Administrador SMTP"
+
+msgctxt "model:smtp.server,name:"
+msgid "SMTP Servers"
+msgstr "Servidors SMTP"
+
+msgctxt "selection:smtp.server,state:"
+msgid "Done"
+msgstr "Aprovat"
+
+msgctxt "selection:smtp.server,state:"
+msgid "Draft"
+msgstr "Esborrany"
+
+msgctxt "view:smtp.server:"
+msgid "Confirm"
+msgstr "Confirma"
+
+msgctxt "view:smtp.server:"
+msgid "Draft"
+msgstr "Esborrany"
+
+msgctxt "view:smtp.server:"
+msgid "SMTP"
+msgstr "SMTP"
+
+msgctxt "view:smtp.server:"
+msgid "Server"
+msgstr "Servidor"
+
+msgctxt "view:smtp.server:"
+msgid "Test Connection"
+msgstr "Test connexió"

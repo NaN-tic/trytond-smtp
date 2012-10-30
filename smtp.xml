@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<!-- This file is part smtp module for Tryton.
+The COPYRIGHT file at the top level of this repository contains the full copyright notices and license terms. -->
+<tryton>
+    <data>
+        <!-- Groups -->
+        <record model="res.group" id="group_smtp_admin">
+            <field name="name">SMTP Administration</field>
+        </record>
+
+        <!-- Menu Top -->
+        <menuitem parent="ir.menu_administration"
+            name="SMTP" id="menu_smtp"/>
+
+        <!-- smtp.server -->
+        <!-- Model Form/Tree -->
+        <record model="ir.ui.view" id="server_view_form">
+            <field name="model">smtp.server</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="SMTP" col="4">
+                    <label name="name"/>
+                    <field name="name"/>
+                    <label name="default"/>
+                    <field name="default"/>
+                    <notebook colspan="4">
+                        <page string="Server" id="server">
+                            <label name="smtp_server"/>
+                            <field name="smtp_server"/>
+                            <label name="smtp_port"/>
+                            <field name="smtp_port"/>
+                            <label name="smtp_ssl"/>
+                            <field name="smtp_ssl"/>
+                            <label name="smtp_tls"/>
+                            <field name="smtp_tls"/>
+                            <label name="smtp_user"/>
+                            <field name="smtp_user"/>
+                            <label name="smtp_password"/>
+                            <field name="smtp_password" widget="sha"/>
+                            <group col="6" colspan="6" id="server_buttons">
+                                <label name="state"/>
+                                <field name="state"/>
+                                <button name="draft" string="Draft"/>
+                                <button name="done" string="Confirm" icon="tryton-go-next"/>
+                                <button name="get_smtp_test" string="Test Connection"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </form>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="server_view_tree">
+            <field name="model">smtp.server</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree string="SMTP" colors="If(Equal(Eval('state'), 'draft'), 'grey', 'black')">
+                    <field name="name"/>
+                    <field name="smtp_server"/>
+                    <field name="smtp_user"/>
+                    <field name="state"/>
+                </tree>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Actions / Menu -->
+        <record model="ir.action.act_window" id="act_server_form">
+            <field name="name">Servers</field>
+            <field name="res_model">smtp.server</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_server_form_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="server_view_tree"/>
+            <field name="act_window" ref="act_server_form"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_currency_form_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="server_view_form"/>
+            <field name="act_window" ref="act_server_form"/>
+        </record>
+        <menuitem parent="menu_smtp" action="act_server_form"
+            id="menu_server_form"/>
+
+        <!-- Access -->
+        <record model="ir.model.access" id="access_smtp_server">
+            <field name="model" search="[('model', '=', 'smtp.server')]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+        <record model="ir.model.access" id="access_smtp_server_admin">
+            <field name="model" search="[('model', '=', 'smtp.server')]"/>
+            <field name="group" ref="group_smtp_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+        <!-- End smtp.server -->
+    </data>
+</tryton>
