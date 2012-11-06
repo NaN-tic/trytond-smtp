@@ -77,7 +77,7 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
             <field name="view" ref="server_view_tree"/>
             <field name="act_window" ref="act_server_form"/>
         </record>
-        <record model="ir.action.act_window.view" id="act_currency_form_view2">
+        <record model="ir.action.act_window.view" id="act_server_form_view2">
             <field name="sequence" eval="20"/>
             <field name="view" ref="server_view_form"/>
             <field name="act_window" ref="act_server_form"/>
