@@ -37,6 +37,14 @@ class SmtpServer(ModelSQL, ModelView):
         states={
             'readonly': (Eval('state') != 'draft'),
         }, depends=['state'])
+    smtp_use_email = fields.Boolean('Use email',
+        states={
+            'readonly': (Eval('state') != 'draft'),
+        }, depends=['state'], help='Force to send emails using this email')
+    smtp_email = fields.Char('Email', required=True,
+        states={
+            'readonly': (Eval('state') != 'draft'),
+        }, depends=['state'], help='Default From (if active this option) and Reply Email')
     state = fields.Selection([
         ('draft', 'Draft'),
         ('done', 'Done'),
