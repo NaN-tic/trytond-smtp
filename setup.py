@@ -63,9 +63,9 @@ setup(name='trytonzz_smtp',
     install_requires=requires,
     zip_safe=False,
     entry_points="""
-    [trytonzz.modules]
-    smtp = trytonzz.modules.smtp
+    [trytond.modules]
+    smtp = trytond.modules.smtp
     """,
     test_suite='tests',
-    test_loader='trytonzz.test_loader:Loader',
+    test_loader='trytond.test_loader:Loader',
 )
