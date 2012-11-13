@@ -27,20 +27,20 @@ for dep in info.get('depends', []):
 requires.append('trytond >= %s.%s, < %s.%s' %
         (major_version, minor_version, major_version, minor_version + 1))
 
-setup(name='trytond_smtp',
+setup(name='trytonzz_smtp',
     version=info.get('version', '0.0.1'),
     description='Tryton module to add smtp servers to anothers modules use it',
     author='Zikzakmedia SL',
     author_email='zikzak@zikzakmedia.com',
     url='http://www.zikzakmedia.com',
-    download_url="https://bitbucket.org/zikzakmedia/trytond-smtp",
-    package_dir={'trytond.modules.smtp': '.'},
+    download_url="https://bitbucket.org/zikzakmedia/trytonzz-smtp",
+    package_dir={'trytonzz.modules.smtp': '.'},
     packages=[
-        'trytond.modules.smtp',
-        'trytond.modules.smtp.tests',
+        'trytonzz.modules.smtp',
+        'trytonzz.modules.smtp.tests',
         ],
     package_data={
-        'trytond.modules.smtp': info.get('xml', []) \
+        'trytonzz.modules.smtp': info.get('xml', []) \
             + ['tryton.cfg', 'locale/*.po'],
         },
     classifiers=[
@@ -63,9 +63,9 @@ setup(name='trytond_smtp',
     install_requires=requires,
     zip_safe=False,
     entry_points="""
-    [trytond.modules]
-    smtp = trytond.modules.smtp
+    [trytonzz.modules]
+    smtp = trytonzz.modules.smtp
     """,
     test_suite='tests',
-    test_loader='trytond.test_loader:Loader',
+    test_loader='trytonzz.test_loader:Loader',
 )
