@@ -33,14 +33,14 @@ setup(name='trytonzz_smtp',
     author='Zikzakmedia SL',
     author_email='zikzak@zikzakmedia.com',
     url='http://www.zikzakmedia.com',
-    download_url="https://bitbucket.org/zikzakmedia/trytonzz-smtp",
-    package_dir={'trytonzz.modules.smtp': '.'},
+    download_url="https://bitbucket.org/zikzakmedia/trytond-smtp",
+    package_dir={'trytond.modules.smtp': '.'},
     packages=[
-        'trytonzz.modules.smtp',
-        'trytonzz.modules.smtp.tests',
+        'trytond.modules.smtp',
+        'trytond.modules.smtp.tests',
         ],
     package_data={
-        'trytonzz.modules.smtp': info.get('xml', []) \
+        'trytond.modules.smtp': info.get('xml', []) \
             + ['tryton.cfg', 'locale/*.po'],
         },
     classifiers=[
