@@ -1,5 +1,5 @@
 #This file is part smtp module for Tryton.
-#The COPYRIGHT file at the top level of this repository contains 
+#The COPYRIGHT file at the top level of this repository contains
 #the full copyright notices and license terms.
 from trytond.model import ModelView, ModelSQL, fields
 from trytond.pool import Pool
@@ -120,11 +120,11 @@ class SmtpServer(ModelSQL, ModelView):
         for server in servers:
             try:
                 cls.get_smtp_server(server)
-                cls.raise_user_error('smtp_successful')
             except Exception, message:
                 cls.raise_user_error('smtp_test_details', message)
             except:
                 cls.raise_user_error('smtp_error')
+            cls.raise_user_error('smtp_successful')
 
     @staticmethod
     def get_smtp_server(server):
