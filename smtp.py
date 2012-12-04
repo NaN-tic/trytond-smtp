@@ -9,6 +9,7 @@ import smtplib
 
 __all__ = ['SmtpServer', 'SmtpServerModel']
 
+
 class SmtpServer(ModelSQL, ModelView):
     'SMTP Servers'
     __name__ = 'smtp.server'
