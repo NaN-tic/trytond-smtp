@@ -7,7 +7,7 @@ from trytond.pyson import Eval
 
 import smtplib
 
-__all__ = ['SmtpServer']
+__all__ = ['SmtpServer', 'SmtpServerModel']
 
 class SmtpServer(ModelSQL, ModelView):
     'SMTP Servers'
@@ -17,7 +17,7 @@ class SmtpServer(ModelSQL, ModelView):
         states={
             'readonly': (Eval('state') != 'draft'),
         }, depends=['state'])
-    smtp_port  = fields.Integer('Port', required=True,
+    smtp_port = fields.Integer('Port', required=True,
         states={
             'readonly': (Eval('state') != 'draft'),
         }, depends=['state'])
@@ -44,12 +44,19 @@ class SmtpServer(ModelSQL, ModelView):
     smtp_email = fields.Char('Email', required=True,
         states={
             'readonly': (Eval('state') != 'draft'),
-        }, depends=['state'], help='Default From (if active this option) and Reply Email')
+        }, depends=['state'],
+        help='Default From (if active this option) and Reply Email')
     state = fields.Selection([
         ('draft', 'Draft'),
         ('done', 'Done'),
     ], 'State', readonly=True, required=True)
     default = fields.Boolean('Default')
+    models = fields.Many2Many('smtp.server-ir.model',
+            'server', 'model', 'Models',
+        states={
+            'readonly': Eval('state').in_(['done']),
+            },
+        depends=['state'])
 
     @classmethod
     def __setup__(cls):
@@ -58,6 +65,8 @@ class SmtpServer(ModelSQL, ModelView):
             'smtp_successful': 'SMTP Test Connection Was Successful',
             'smtp_test_details': 'SMTP Test Connection Details:\n%s',
             'smtp_error': 'SMTP Test Connection Failed.',
+            'server_model_not_found': 'There are not SMTP server related '
+                'at model %s',
         })
         cls._buttons.update({
             'get_smtp_test': {},
@@ -146,3 +155,28 @@ class SmtpServer(ModelSQL, ModelView):
             smtp_server.login(server.smtp_user, server.smtp_password)
 
         return smtp_server
+
+    @classmethod
+    def get_smtp_server_from_model(self, model):
+        """
+        Return Server from Models
+        :param model: str Model name
+        return object server
+        """
+        model = Pool().get('ir.model').search([('model', '=', model)])[0]
+        servers = Pool().get('smtp.server-ir.model').search([
+            ('model', '=', model)], limit=1)
+        if not servers:
+            self.raise_user_error('server_model_not_found', model.name)
+        return servers[0].server
+
+
+class SmtpServerModel(ModelSQL):
+    'SMTP Server - Model'
+    __name__ = 'smtp.server-ir.model'
+    _table = 'smtp_server_ir_model'
+
+    server = fields.Many2One('smtp.server', 'Server', ondelete='CASCADE',
+            select=True, required=True)
+    model = fields.Many2One('ir.model', 'Model', ondelete='RESTRICT',
+            select=True, required=True)

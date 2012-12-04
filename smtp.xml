@@ -54,6 +54,9 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
                                 <button name="get_smtp_test" string="Test Connection" icon="tryton-ok"/>
                             </group>
                         </page>
+                        <page string="Models" id="model">
+                            <field name="models"/>
+                        </page>
                     </notebook>
                 </form>
                 ]]>
@@ -103,6 +106,14 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
         </record>
         <record model="ir.model.access" id="access_smtp_server_admin">
             <field name="model" search="[('model', '=', 'smtp.server')]"/>
+            <field name="group" ref="group_smtp_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+        <record model="ir.model.access" id="access_smtp_server_model_admin">
+            <field name="model" search="[('model', '=', 'smtp.server-ir.model')]"/>
             <field name="group" ref="group_smtp_admin"/>
             <field name="perm_read" eval="True"/>
             <field name="perm_write" eval="True"/>
