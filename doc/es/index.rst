@@ -8,15 +8,6 @@ electrónicos mediante el protocolo SMTP.
 Este módulos sirve de base para que otros módulos puedan enviar correos
 electrónicos, como por ejemplo el módulo **Plantillas correo electrónico**.
 
-Menús
-=====
-
-Este módulo crea los siguientes menús:
-
-* |menu_server_form|
-
-.. |menu_server_form| tryref:: smtp.menu_server_form/complete_name
-
 Grupo de usuarios
 =================
 
@@ -37,6 +28,7 @@ API
 ===
 
 .. code:: python
+
     SMTP = Pool().get('smtp.server')
     
     servers = SMTP.search([('state','=','done'),('default','=',True)])
