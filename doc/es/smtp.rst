@@ -1,6 +1,6 @@
-===============
-Envío de correo
-===============
+=====================
+SMTP. Envío de correo
+=====================
 
 Este módulo permite dar de alta servidores para el envío de correos
 electrónicos mediante el protocolo SMTP. 
