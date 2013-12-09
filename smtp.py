@@ -88,20 +88,16 @@ class SmtpServer(ModelSQL, ModelView):
         return True
 
     @staticmethod
-    def default_ssl():
+    def default_smtp_ssl():
         return True
-
-    @staticmethod
-    def default_tls():
-        return True
-
-    @staticmethod
-    def default_state():
-        return 'draft'
 
     @staticmethod
     def default_smtp_port():
         return 465
+
+    @staticmethod
+    def default_state():
+        return 'draft'
 
     @classmethod
     @ModelView.button
