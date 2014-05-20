@@ -7,6 +7,10 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
         <record model="res.group" id="group_smtp_admin">
             <field name="name">SMTP Administration</field>
         </record>
+        <record model="res.user-res.group" id="user_admin_group_smtp_admin">
+            <field name="user" ref="res.user_admin"/>
+            <field name="group" ref="group_smtp_admin"/>
+        </record>
 
         <!-- Menu Top -->
         <menuitem parent="ir.menu_administration"
@@ -45,10 +49,13 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
                             <group col="6" colspan="6" id="server_buttons">
                                 <label name="state"/>
                                 <field name="state"/>
-                                <button name="draft" string="Draft"/>
+                                <button name="draft" string="Draft" icon="tryton-clear"/>
                                 <button name="done" string="Confirm" icon="tryton-go-next"/>
-                                <button name="get_smtp_test" string="Test Connection"/>
+                                <button name="get_smtp_test" string="Test Connection" icon="tryton-ok"/>
                             </group>
+                        </page>
+                        <page string="Models" id="model">
+                            <field name="models"/>
                         </page>
                     </notebook>
                 </form>
@@ -99,6 +106,14 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
         </record>
         <record model="ir.model.access" id="access_smtp_server_admin">
             <field name="model" search="[('model', '=', 'smtp.server')]"/>
+            <field name="group" ref="group_smtp_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+        <record model="ir.model.access" id="access_smtp_server_model_admin">
+            <field name="model" search="[('model', '=', 'smtp.server-ir.model')]"/>
             <field name="group" ref="group_smtp_admin"/>
             <field name="perm_read" eval="True"/>
             <field name="perm_write" eval="True"/>
