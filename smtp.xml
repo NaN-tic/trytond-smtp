@@ -41,7 +41,7 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
                             <label name="smtp_user"/>
                             <field name="smtp_user"/>
                             <label name="smtp_password"/>
-                            <field name="smtp_password" widget="sha"/>
+                            <field name="smtp_password" widget="password"/>
                             <label name="smtp_use_email"/>
                             <field name="smtp_use_email"/>
                             <label name="smtp_email"/>
