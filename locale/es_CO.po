@@ -22,11 +22,11 @@ msgstr "No hay servidor SMTP relacionado con el modelo %s"
 
 msgctxt "field:smtp.server,create_date:"
 msgid "Create Date"
-msgstr "Fecha de Creación"
+msgstr "Fecha creación"
 
 msgctxt "field:smtp.server,create_uid:"
 msgid "Create User"
-msgstr "Creado por Usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:smtp.server,default:"
 msgid "Default"

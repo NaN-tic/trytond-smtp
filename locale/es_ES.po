@@ -20,11 +20,11 @@ msgstr "La connexión SMTP se ha realizado correctamente."
 
 msgctxt "field:smtp.server,create_date:"
 msgid "Create Date"
-msgstr "Fecha de creación"
+msgstr "Fecha creación"
 
 msgctxt "field:smtp.server,create_uid:"
 msgid "Create User"
-msgstr "Usuario de creación"
+msgstr "Usuario creación"
 
 msgctxt "field:smtp.server,default:"
 msgid "Default"
