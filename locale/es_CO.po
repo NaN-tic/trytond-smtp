@@ -14,7 +14,7 @@ msgstr "Test de Conexión SMTP Falló."
 
 msgctxt "error:smtp.server:"
 msgid "SMTP Test Connection Was Successful"
-msgstr "Test de Conexión SMTP Falló."
+msgstr "El Test de conexión SMTP fue exitoso!"
 
 msgctxt "error:smtp.server:"
 msgid "There are not SMTP server related at model %s"
