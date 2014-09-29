@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!-- This file is part smtp module for Tryton.
+The COPYRIGHT file at the top level of this repository contains the full copyright notices and license terms. -->
+<form string="SMTP" col="4">
+    <label name="name"/>
+    <field name="name"/>
+    <label name="default"/>
+    <field name="default"/>
+    <notebook colspan="4">
+        <page string="Server" id="server">
+            <label name="smtp_server"/>
+            <field name="smtp_server"/>
+            <label name="smtp_port"/>
+            <field name="smtp_port"/>
+            <label name="smtp_ssl"/>
+            <field name="smtp_ssl"/>
+            <label name="smtp_tls"/>
+            <field name="smtp_tls"/>
+            <label name="smtp_user"/>
+            <field name="smtp_user"/>
+            <label name="smtp_password"/>
+            <field name="smtp_password" widget="password"/>
+            <label name="smtp_use_email"/>
+            <field name="smtp_use_email"/>
+            <label name="smtp_email"/>
+            <field name="smtp_email"/>
+            <group col="6" colspan="6" id="server_buttons">
+                <label name="state"/>
+                <field name="state"/>
+                <button name="draft" string="Draft" icon="tryton-clear"/>
+                <button name="done" string="Confirm" icon="tryton-go-next"/>
+                <button name="get_smtp_test" string="Test Connection" icon="tryton-ok"/>
+            </group>
+        </page>
+        <page string="Models" id="model">
+            <field name="models"/>
+        </page>
+    </notebook>
+</form>

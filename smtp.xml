@@ -17,65 +17,15 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
             name="SMTP" id="menu_smtp"/>
 
         <!-- smtp.server -->
-        <!-- Model Form/Tree -->
         <record model="ir.ui.view" id="server_view_form">
             <field name="model">smtp.server</field>
             <field name="type">form</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <form string="SMTP" col="4">
-                    <label name="name"/>
-                    <field name="name"/>
-                    <label name="default"/>
-                    <field name="default"/>
-                    <notebook colspan="4">
-                        <page string="Server" id="server">
-                            <label name="smtp_server"/>
-                            <field name="smtp_server"/>
-                            <label name="smtp_port"/>
-                            <field name="smtp_port"/>
-                            <label name="smtp_ssl"/>
-                            <field name="smtp_ssl"/>
-                            <label name="smtp_tls"/>
-                            <field name="smtp_tls"/>
-                            <label name="smtp_user"/>
-                            <field name="smtp_user"/>
-                            <label name="smtp_password"/>
-                            <field name="smtp_password" widget="password"/>
-                            <label name="smtp_use_email"/>
-                            <field name="smtp_use_email"/>
-                            <label name="smtp_email"/>
-                            <field name="smtp_email"/>
-                            <group col="6" colspan="6" id="server_buttons">
-                                <label name="state"/>
-                                <field name="state"/>
-                                <button name="draft" string="Draft" icon="tryton-clear"/>
-                                <button name="done" string="Confirm" icon="tryton-go-next"/>
-                                <button name="get_smtp_test" string="Test Connection" icon="tryton-ok"/>
-                            </group>
-                        </page>
-                        <page string="Models" id="model">
-                            <field name="models"/>
-                        </page>
-                    </notebook>
-                </form>
-                ]]>
-            </field>
+            <field name="name">smtp_server_form</field>
         </record>
-
         <record model="ir.ui.view" id="server_view_tree">
             <field name="model">smtp.server</field>
             <field name="type">tree</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <tree string="SMTP" colors="If(Equal(Eval('state'), 'draft'), 'grey', 'black')">
-                    <field name="name"/>
-                    <field name="smtp_server"/>
-                    <field name="smtp_user"/>
-                    <field name="state"/>
-                </tree>
-                ]]>
-            </field>
+            <field name="name">smtp_server_tree</field>
         </record>
 
         <!-- Actions / Menu -->
