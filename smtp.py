@@ -125,32 +125,31 @@ class SmtpServer(ModelSQL, ModelView):
         """Checks SMTP credentials and confirms if outgoing connection works"""
         for server in servers:
             try:
-                cls.get_smtp_server(server)
+                server.get_smtp_server()
             except Exception, message:
                 cls.raise_user_error('smtp_test_details', message)
             except:
                 cls.raise_user_error('smtp_error')
             cls.raise_user_error('smtp_successful')
 
-    @staticmethod
-    def get_smtp_server(server):
+    def get_smtp_server(self):
         """
         Instanciate, configure and return a SMTP or SMTP_SSL instance from
         smtplib.
         :return: A SMTP instance. The quit() method must be call when all
         the calls to sendmail() have been made.
         """
-        if server.smtp_ssl:
-            smtp_server = smtplib.SMTP_SSL(server.smtp_server, server.smtp_port)
+        if self.smtp_ssl:
+            smtp_server = smtplib.SMTP_SSL(self.smtp_server, self.smtp_port)
         else:
-            smtp_server = smtplib.SMTP(server.smtp_server, server.smtp_port)
+            smtp_server = smtplib.SMTP(self.smtp_server, self.smtp_port)
 
-        if server.smtp_tls:
+        if self.smtp_tls:
             smtp_server.starttls()
 
-        if server.smtp_user and server.smtp_password:
-            smtp_server.login(server.smtp_user.encode('UTF-8'),
-                server.smtp_password.encode('UTF-8'))
+        if self.smtp_user and self.smtp_password:
+            smtp_server.login(self.smtp_user.encode('UTF-8'),
+                self.smtp_password.encode('UTF-8'))
 
         return smtp_server
 
