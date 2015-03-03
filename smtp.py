@@ -79,6 +79,10 @@ class SmtpServer(ModelSQL, ModelView):
                 },
             })
 
+    @classmethod
+    def check_xml_record(cls, records, values):
+        return True
+
     @staticmethod
     def default_active():
         return True
