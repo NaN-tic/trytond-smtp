@@ -106,20 +106,14 @@ class SmtpServer(ModelSQL, ModelView):
     @classmethod
     @ModelView.button
     def draft(cls, servers):
-        draft = []
-        for server in servers:
-            draft.append(server)
-        cls.write(draft, {
+        cls.write(servers, {
             'state': 'draft',
             })
 
     @classmethod
     @ModelView.button
     def done(cls, servers):
-        done = []
-        for server in servers:
-            done.append(server)
-        cls.write(done, {
+        cls.write(servers, {
             'state': 'done',
             })
 
