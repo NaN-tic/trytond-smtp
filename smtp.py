@@ -3,8 +3,7 @@
 #the full copyright notices and license terms.
 from trytond.model import ModelView, ModelSQL, fields
 from trytond.pool import Pool
-from trytond.pyson import Eval
-
+from trytond.pyson import Eval, If, Equal
 import smtplib
 
 __all__ = ['SmtpServer', 'SmtpServerModel']
@@ -164,6 +163,11 @@ class SmtpServer(ModelSQL, ModelView):
         if not servers:
             self.raise_user_error('server_model_not_found', model.name)
         return servers[0].server
+
+    @classmethod
+    def view_attributes(cls):
+        return [('/tree', 'colors',
+                If(Equal(Eval('state'), 'draft'), 'grey', 'black'))]
 
 
 class SmtpServerModel(ModelSQL):
