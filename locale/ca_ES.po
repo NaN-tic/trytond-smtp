@@ -18,6 +18,10 @@ msgctxt "error:smtp.server:"
 msgid "SMTP Test Connection Was Successful"
 msgstr "La connexió SMTP s'ha realitzat correctament."
 
+msgctxt "error:smtp.server:"
+msgid "There are not SMTP server related at model %s"
+msgstr "No hi ha cap servidor SMTP relacionat amb el model %s."
+
 msgctxt "field:smtp.server,create_date:"
 msgid "Create Date"
 msgstr "Data creació"
@@ -33,6 +37,10 @@ msgstr "Per defecte"
 msgctxt "field:smtp.server,id:"
 msgid "ID"
 msgstr "ID"
+
+msgctxt "field:smtp.server,models:"
+msgid "Models"
+msgstr "Models"
 
 msgctxt "field:smtp.server,name:"
 msgid "Name"
@@ -86,6 +94,38 @@ msgctxt "field:smtp.server,write_uid:"
 msgid "Write User"
 msgstr "Usuari modificació"
 
+msgctxt "field:smtp.server-ir.model,create_date:"
+msgid "Create Date"
+msgstr "Data creació"
+
+msgctxt "field:smtp.server-ir.model,create_uid:"
+msgid "Create User"
+msgstr "Usuari creació"
+
+msgctxt "field:smtp.server-ir.model,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:smtp.server-ir.model,model:"
+msgid "Model"
+msgstr "Model"
+
+msgctxt "field:smtp.server-ir.model,rec_name:"
+msgid "Name"
+msgstr "Nom"
+
+msgctxt "field:smtp.server-ir.model,server:"
+msgid "Server"
+msgstr "Servidor"
+
+msgctxt "field:smtp.server-ir.model,write_date:"
+msgid "Write Date"
+msgstr "Usuari creació"
+
+msgctxt "field:smtp.server-ir.model,write_uid:"
+msgid "Write User"
+msgstr "Usuari modificació"
+
 msgctxt "help:smtp.server,smtp_email:"
 msgid "Default From (if active this option) and Reply Email"
 msgstr ""
@@ -116,6 +156,10 @@ msgctxt "model:smtp.server,name:"
 msgid "SMTP Servers"
 msgstr "Servidors SMTP"
 
+msgctxt "model:smtp.server-ir.model,name:"
+msgid "SMTP Server - Model"
+msgstr "SMTP servidor - model"
+
 msgctxt "selection:smtp.server,state:"
 msgid "Done"
 msgstr "Aprovat"
@@ -131,6 +175,10 @@ msgstr "Confirma"
 msgctxt "view:smtp.server:"
 msgid "Draft"
 msgstr "Esborrany"
+
+msgctxt "view:smtp.server:"
+msgid "Models"
+msgstr "Models"
 
 msgctxt "view:smtp.server:"
 msgid "SMTP"
