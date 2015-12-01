@@ -83,10 +83,6 @@ class SmtpServer(ModelSQL, ModelView):
         return True
 
     @staticmethod
-    def default_active():
-        return True
-
-    @staticmethod
     def default_default():
         return True
 
