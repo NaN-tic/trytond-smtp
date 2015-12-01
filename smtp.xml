@@ -70,6 +70,20 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
             <field name="perm_create" eval="True"/>
             <field name="perm_delete" eval="True"/>
         </record>
-        <!-- End smtp.server -->
+        <record model="ir.model.access" id="access_smtp_server_ir_model">
+            <field name="model" search="[('model', '=', 'smtp.server-ir.model')]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+        <record model="ir.model.access" id="access_smtp_server_ir_model_admin">
+            <field name="model" search="[('model', '=', 'smtp.server-ir.model')]"/>
+            <field name="group" ref="group_smtp_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
     </data>
 </tryton>
