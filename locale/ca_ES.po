@@ -1,4 +1,4 @@
-# 
+#
 msgid ""
 msgstr "Content-Type: text/plain; charset=utf-8\n"
 
@@ -139,6 +139,18 @@ msgstr "Forçar l'enviament de correu usant aquest correu"
 msgctxt "model:ir.action,name:act_server_form"
 msgid "Servers"
 msgstr "Servidors"
+
+msgctxt "model:ir.action.act_window.domain,name:act_server_form_domain_all"
+msgid "All"
+msgstr "Tot"
+
+msgctxt "model:ir.action.act_window.domain,name:act_server_form_domain_done"
+msgid "Done"
+msgstr "Aprovat"
+
+msgctxt "model:ir.action.act_window.domain,name:act_server_form_domain_draft"
+msgid "Draft"
+msgstr "Esborrany"
 
 msgctxt "model:ir.ui.menu,name:menu_server_form"
 msgid "Servers"
