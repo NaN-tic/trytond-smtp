@@ -1,4 +1,4 @@
-# 
+#
 msgid ""
 msgstr "Content-Type: text/plain; charset=utf-8\n"
 
@@ -138,6 +138,18 @@ msgstr "Forzar el envío de correo usando este correo electrónico"
 msgctxt "model:ir.action,name:act_server_form"
 msgid "Servers"
 msgstr "Servidores"
+
+msgctxt "model:ir.action.act_window.domain,name:act_server_form_domain_all"
+msgid "All"
+msgstr "Todo"
+
+msgctxt "model:ir.action.act_window.domain,name:act_server_form_domain_done"
+msgid "Done"
+msgstr "Aprovado"
+
+msgctxt "model:ir.action.act_window.domain,name:act_server_form_domain_draft"
+msgid "Draft"
+msgstr "Borrador"
 
 msgctxt "model:ir.ui.menu,name:menu_server_form"
 msgid "Servers"
