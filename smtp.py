@@ -1,10 +1,11 @@
-#This file is part smtp module for Tryton.
-#The COPYRIGHT file at the top level of this repository contains
-#the full copyright notices and license terms.
+# This file is part smtp module for Tryton.
+# The COPYRIGHT file at the top level of this repository contains
+# the full copyright notices and license terms.
+import smtplib
+
 from trytond.model import ModelView, ModelSQL, fields
 from trytond.pool import Pool
 from trytond.pyson import Eval
-import smtplib
 
 __all__ = ['SmtpServer', 'SmtpServerModel']
 
@@ -16,40 +17,40 @@ class SmtpServer(ModelSQL, ModelView):
     smtp_server = fields.Char('Server', required=True,
         states={
             'readonly': (Eval('state') != 'draft'),
-        }, depends=['state'])
+            }, depends=['state'])
     smtp_port = fields.Integer('Port', required=True,
         states={
             'readonly': (Eval('state') != 'draft'),
-        }, depends=['state'])
+            }, depends=['state'])
     smtp_ssl = fields.Boolean('SSL',
         states={
             'readonly': (Eval('state') != 'draft'),
-        }, depends=['state'])
+            }, depends=['state'])
     smtp_tls = fields.Boolean('TLS',
         states={
             'readonly': (Eval('state') != 'draft'),
-        }, depends=['state'])
+            }, depends=['state'])
     smtp_user = fields.Char('User',
         states={
             'readonly': (Eval('state') != 'draft'),
-        }, depends=['state'])
+            }, depends=['state'])
     smtp_password = fields.Char('Password',
         states={
             'readonly': (Eval('state') != 'draft'),
-        }, depends=['state'])
+            }, depends=['state'])
     smtp_use_email = fields.Boolean('Use email',
         states={
             'readonly': (Eval('state') != 'draft'),
-        }, depends=['state'], help='Force to send emails using this email')
+            }, depends=['state'], help='Force to send emails using this email')
     smtp_email = fields.Char('Email', required=True,
         states={
             'readonly': (Eval('state') != 'draft'),
-        }, depends=['state'],
+            }, depends=['state'],
         help='Default From (if active this option) and Reply Email')
     state = fields.Selection([
-        ('draft', 'Draft'),
-        ('done', 'Done'),
-    ], 'State', readonly=True, required=True)
+            ('draft', 'Draft'),
+            ('done', 'Done'),
+            ], 'State', readonly=True, required=True)
     default = fields.Boolean('Default')
     models = fields.Many2Many('smtp.server-ir.model',
             'server', 'model', 'Models',
@@ -62,21 +63,21 @@ class SmtpServer(ModelSQL, ModelView):
     def __setup__(cls):
         super(SmtpServer, cls).__setup__()
         cls._error_messages.update({
-            'smtp_successful': 'SMTP Test Connection Was Successful',
-            'smtp_test_details': 'SMTP Test Connection Details:\n%s',
-            'smtp_error': 'SMTP Test Connection Failed.',
-            'server_model_not_found': 'There are not SMTP server related '
-                'at model %s',
-        })
+                'smtp_successful': 'SMTP Test Connection Was Successful',
+                'smtp_test_details': 'SMTP Test Connection Details:\n%s',
+                'smtp_error': 'SMTP Test Connection Failed.',
+                'server_model_not_found': (
+                    'There are not SMTP server related at model %s'),
+                })
         cls._buttons.update({
-            'get_smtp_test': {},
-            'draft': {
-                'invisible': Eval('state') == 'draft',
-                },
-            'done': {
-                'invisible': Eval('state') == 'done',
-                },
-            })
+                'get_smtp_test': {},
+                'draft': {
+                    'invisible': Eval('state') == 'draft',
+                    },
+                'done': {
+                    'invisible': Eval('state') == 'done',
+                    },
+                })
 
     @classmethod
     def check_xml_record(cls, records, values):
@@ -102,15 +103,15 @@ class SmtpServer(ModelSQL, ModelView):
     @ModelView.button
     def draft(cls, servers):
         cls.write(servers, {
-            'state': 'draft',
-            })
+                'state': 'draft',
+                })
 
     @classmethod
     @ModelView.button
     def done(cls, servers):
         cls.write(servers, {
-            'state': 'done',
-            })
+                'state': 'done',
+                })
 
     @classmethod
     @ModelView.button
@@ -155,7 +156,8 @@ class SmtpServer(ModelSQL, ModelView):
         """
         model = Pool().get('ir.model').search([('model', '=', model)])[0]
         servers = Pool().get('smtp.server-ir.model').search([
-            ('model', '=', model)], limit=1)
+                ('model', '=', model),
+                ], limit=1)
         if not servers:
             self.raise_user_error('server_model_not_found', model.name)
         return servers[0].server
@@ -167,6 +169,6 @@ class SmtpServerModel(ModelSQL):
     _table = 'smtp_server_ir_model'
 
     server = fields.Many2One('smtp.server', 'Server', ondelete='CASCADE',
-            select=True, required=True)
+        select=True, required=True)
     model = fields.Many2One('ir.model', 'Model', ondelete='RESTRICT',
-            select=True, required=True)
+        select=True, required=True)
