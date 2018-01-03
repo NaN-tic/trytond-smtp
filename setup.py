@@ -13,7 +13,7 @@ except ImportError:
     from ConfigParser import ConfigParser
 
 MODULE = 'smtp'
-PREFIX = 'trytonzz'
+PREFIX = 'trytonspain'
 MODULE2PREFIX = {}
 
 
@@ -58,12 +58,12 @@ if minor_version % 2:
 
 setup(name='%s_%s' % (PREFIX, MODULE),
     version=version,
-    description='Tryton smtp Module',
+    description='Tryton SMTP Module',
     long_description=read('README'),
-    author='Zikzakmedia',
-    author_email='zikzak@zikzakmedia.com',
-    url='https://bitbucket.org/zikzakmedia/',
-    download_url="https://bitbucket.org/zikzakmedia/trytond-%s" % MODULE,
+    author='TrytonSpain',
+    author_email='',
+    url='https://bitbucket.org/trytonspain/',
+    download_url="https://bitbucket.org/trytonspain/trytond-%s" % MODULE,
     keywords='',
     package_dir={'trytond.modules.%s' % MODULE: '.'},
     packages=[
