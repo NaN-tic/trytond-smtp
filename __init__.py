@@ -2,11 +2,11 @@
 # The COPYRIGHT file at the top level of this repository contains
 # the full copyright notices and license terms.
 from trytond.pool import Pool
-from .smtp import *
+from . import smtp
 
 
 def register():
     Pool.register(
-        SmtpServer,
-        SmtpServerModel,
+        smtp.SmtpServer,
+        smtp.SmtpServerModel,
         module='smtp', type_='model')
