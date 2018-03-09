@@ -105,5 +105,23 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
             <field name="perm_create" eval="True"/>
             <field name="perm_delete" eval="True"/>
         </record>
+
+        <record model="ir.model.button" id="smtp_server_get_smtp_test_button">
+            <field name="name">get_smtp_test</field>
+            <field name="string">Test Connection</field>
+            <field name="model" search="[('model', '=', 'smtp.server')]"/>
+        </record>
+
+        <record model="ir.model.button" id="smtp_server_draft_button">
+            <field name="name">draft</field>
+            <field name="string">Draft</field>
+            <field name="model" search="[('model', '=', 'smtp.server')]"/>
+        </record>
+
+        <record model="ir.model.button" id="smtp_server_done_button">
+            <field name="name">done</field>
+            <field name="string">Confirm</field>
+            <field name="model" search="[('model', '=', 'smtp.server')]"/>
+        </record>
     </data>
 </tryton>

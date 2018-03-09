@@ -27,9 +27,9 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
             <group col="6" colspan="6" id="server_buttons">
                 <label name="state"/>
                 <field name="state"/>
-                <button name="draft" string="Draft" icon="tryton-clear"/>
-                <button name="done" string="Confirm" icon="tryton-go-next"/>
-                <button name="get_smtp_test" string="Test Connection" icon="tryton-ok"/>
+                <button name="draft" icon="tryton-clear"/>
+                <button name="done" icon="tryton-go-next"/>
+                <button name="get_smtp_test" icon="tryton-ok"/>
             </group>
         </page>
         <page string="Models" id="model">
