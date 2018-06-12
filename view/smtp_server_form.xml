@@ -10,8 +10,12 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
         <page string="Server" id="server">
             <label name="smtp_server"/>
             <field name="smtp_server"/>
-            <label name="smtp_port"/>
-            <field name="smtp_port"/>
+            <group id="smtp_header" col="4" colspan="2">
+                <label name="smtp_port"/>
+                <field name="smtp_port"/>
+                <label name="smtp_timeout"/>
+                <field name="smtp_timeout"/>
+            </group>
             <label name="smtp_ssl"/>
             <field name="smtp_ssl"/>
             <label name="smtp_tls"/>
