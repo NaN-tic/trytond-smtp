@@ -5,6 +5,7 @@ from trytond.model import ModelView, ModelSQL, fields
 from trytond.pool import Pool
 from trytond.pyson import Eval
 import smtplib
+import socket
 
 __all__ = ['SmtpServer', 'SmtpServerModel']
 
@@ -17,6 +18,10 @@ class SmtpServer(ModelSQL, ModelView):
         states={
             'readonly': (Eval('state') != 'draft'),
         }, depends=['state'])
+    smtp_timeout = fields.Integer('Timeout', required=True,
+        states={
+            'readonly': (Eval('state') != 'draft'),
+        }, depends=['state'], help="Time in secods")
     smtp_port = fields.Integer('Port', required=True,
         states={
             'readonly': (Eval('state') != 'draft'),
@@ -67,6 +72,10 @@ class SmtpServer(ModelSQL, ModelView):
             'smtp_error': 'SMTP Test Connection Failed.',
             'server_model_not_found': 'There are not SMTP server related '
                 'at model %s',
+            'smtp_exception': 'SMTP Server exception:\n(Email have not been '
+                'sent)\n\n"""\n%s\n"""',
+            'smtp_server_error': 'Error: could not connect to server.\n(Email '
+                'have not been sent)',
         })
         cls._buttons.update({
             'get_smtp_test': {},
@@ -85,6 +94,10 @@ class SmtpServer(ModelSQL, ModelView):
     @staticmethod
     def default_default():
         return True
+
+    @staticmethod
+    def default_timeout():
+        return 60
 
     @staticmethod
     def default_smtp_ssl():
@@ -133,9 +146,11 @@ class SmtpServer(ModelSQL, ModelView):
         the calls to sendmail() have been made.
         """
         if self.smtp_ssl:
-            smtp_server = smtplib.SMTP_SSL(self.smtp_server, self.smtp_port)
+            smtp_server = smtplib.SMTP_SSL(self.smtp_server, self.smtp_port,
+                timeout=self.smtp_timeout)
         else:
-            smtp_server = smtplib.SMTP(self.smtp_server, self.smtp_port)
+            smtp_server = smtplib.SMTP(self.smtp_server, self.smtp_port,
+                timeout=self.smtp_timeout)
 
         if self.smtp_tls:
             smtp_server.starttls()
@@ -159,6 +174,20 @@ class SmtpServer(ModelSQL, ModelView):
         if not servers:
             self.raise_user_error('server_model_not_found', model.name)
         return servers[0].server
+
+    def send_mail(self, from_, cc, email):
+        # TODO:
+        #  On py3 the exceptions change.
+        try:
+            smtp_server = self.get_smtp_server()
+            smtp_server.sendmail(from_, cc, email)
+            smtp_server.quit()
+            return True
+        except smtplib.SMTPException, error:
+            self.raise_user_error('smtp_exception', error)
+        except smtplib.socket.error, error:
+            self.raise_user_error('smtp_server_error', error)
+        return False
 
 
 class SmtpServerModel(ModelSQL):
