@@ -96,7 +96,7 @@ class SmtpServer(ModelSQL, ModelView):
         return True
 
     @staticmethod
-    def default_timeout():
+    def default_smtp_timeout():
         return 60
 
     @staticmethod
