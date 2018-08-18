@@ -5,7 +5,6 @@ from trytond.model import ModelView, ModelSQL, fields
 from trytond.pool import Pool
 from trytond.pyson import Eval
 import smtplib
-import socket
 
 __all__ = ['SmtpServer', 'SmtpServerModel']
 
@@ -132,7 +131,7 @@ class SmtpServer(ModelSQL, ModelView):
         for server in servers:
             try:
                 server.get_smtp_server()
-            except Exception, message:
+            except Exception as message:
                 cls.raise_user_error('smtp_test_details', message)
             except:
                 cls.raise_user_error('smtp_error')
@@ -184,9 +183,9 @@ class SmtpServer(ModelSQL, ModelView):
             smtp_server.sendmail(from_, cc, email)
             smtp_server.quit()
             return True
-        except smtplib.SMTPException, error:
+        except smtplib.SMTPException as error:
             self.raise_user_error('smtp_exception', error)
-        except smtplib.socket.error, error:
+        except smtplib.socket.error as error:
             self.raise_user_error('smtp_server_error', error)
         return False
 
