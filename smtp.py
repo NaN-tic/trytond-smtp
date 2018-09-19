@@ -155,8 +155,7 @@ class SmtpServer(ModelSQL, ModelView):
             smtp_server.starttls()
 
         if self.smtp_user and self.smtp_password:
-            smtp_server.login(self.smtp_user.encode('UTF-8'),
-                self.smtp_password.encode('UTF-8'))
+            smtp_server.login(self.smtp_user, self.smtp_password)
 
         return smtp_server
 
