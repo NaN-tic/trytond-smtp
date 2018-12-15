@@ -80,9 +80,11 @@ class SmtpServer(ModelSQL, ModelView):
                 'get_smtp_test': {},
                 'draft': {
                     'invisible': Eval('state') == 'draft',
+                    'depends': ['state'],
                     },
                 'done': {
                     'invisible': Eval('state') == 'done',
+                    'depends': ['state'],
                     },
                 })
 
