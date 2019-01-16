@@ -5,6 +5,8 @@ from trytond.model import ModelView, ModelSQL, fields
 from trytond.pool import Pool
 from trytond.pyson import Eval
 import smtplib
+from trytond.i18n import gettext
+from trytond.exceptions import UserError
 
 __all__ = ['SmtpServer', 'SmtpServerModel']
 
@@ -65,17 +67,6 @@ class SmtpServer(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(SmtpServer, cls).__setup__()
-        cls._error_messages.update({
-                'smtp_successful': 'SMTP Test Connection Was Successful',
-                'smtp_test_details': 'SMTP Test Connection Details:\n%s',
-                'smtp_error': 'SMTP Test Connection Failed.',
-                'server_model_not_found': (
-                    'There are not SMTP server related at model %s'),
-                'smtp_exception': 'SMTP Server exception:\n(Email have not '
-                    'been sent)\n\n"""\n%s\n"""',
-                'smtp_server_error': 'Error: could not connect to server.\n('
-                    'Email have not been sent)',
-                })
         cls._buttons.update({
                 'get_smtp_test': {},
                 'draft': {
@@ -134,10 +125,11 @@ class SmtpServer(ModelSQL, ModelView):
             try:
                 server.get_smtp_server()
             except Exception as message:
-                cls.raise_user_error('smtp_test_details', message)
+                raise UserError(gettext('smtp.smtp_test_details',
+                    error=message))
             except:
-                cls.raise_user_error('smtp_error')
-            cls.raise_user_error('smtp_successful')
+                raise UserError(gettext('smtp.smtp_error'))
+            raise UserError(gettext('smtp.smtp_successful'))
 
     def get_smtp_server(self):
         """
@@ -173,7 +165,8 @@ class SmtpServer(ModelSQL, ModelView):
                 ('model', '=', model),
                 ], limit=1)
         if not servers:
-            self.raise_user_error('server_model_not_found', model.name)
+            raise UserError(gettext(
+                'smtp.server_model_not_found', model=model.name))
         return servers[0].server
 
     def send_mail(self, from_, cc, email):
@@ -185,9 +178,9 @@ class SmtpServer(ModelSQL, ModelView):
             smtp_server.quit()
             return True
         except smtplib.SMTPException as error:
-            self.raise_user_error('smtp_exception', error)
+            raise UserError(gettext('smtp.smtp_exception', eror=error))
         except smtplib.socket.error as error:
-            self.raise_user_error('smtp_server_error', error)
+            raise UserError(gettext('smtp.smtp_server_error', error=error))
         return False
 
 

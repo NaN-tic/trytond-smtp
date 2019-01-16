@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!-- This file is part of Tryton.  The COPYRIGHT file at the top level of
+this repository contains the full copyright notices and license terms. -->
+<tryton>
+    <data group="1">
+      <record model="ir.message" id="smtp_successful">
+          <field name="text">SMTP Test Connection Was Successful</field>
+      </record>
+      <record model="ir.message" id="smtp_test_details">
+          <field name="text">SMTP Test Connection Details:\n%(error)s</field>
+      </record>
+      <record model="ir.message" id="smtp_error">
+          <field name="text">SMTP Test Connection Failed.</field>
+      </record>
+      <record model="ir.message" id="server_model_not_found">
+          <field name="text">There are not SMTP server related at model %(model)s</field>
+      </record>
+      <record model="ir.message" id="smtp_exception">
+          <field name="text">SMTP Server exception:\n(Email have not been sent)\n\n"""\n%(error)s\n"""</field>
+      </record>
+      <record model="ir.message" id="smtp_server_error">
+          <field name="text">Error: could not connect to server.\n(Email have not been sent)</field>
+      </record>
+    </data>
+</tryton>
