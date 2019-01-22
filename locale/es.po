@@ -2,33 +2,13 @@
 msgid ""
 msgstr "Content-Type: text/plain; charset=utf-8\n"
 
-msgctxt "error:smtp.server:"
-msgid ""
-"SMTP Test Connection Details:\n"
-"%s"
-msgstr ""
-"Detalles de la conexión SMTP:\n"
-"%s"
-
-msgctxt "error:smtp.server:"
-msgid "SMTP Test Connection Failed."
-msgstr "La conexión SMTP ha fallado."
-
-msgctxt "error:smtp.server:"
-msgid "SMTP Test Connection Was Successful"
-msgstr "La connexión SMTP se ha realizado correctamente."
-
-msgctxt "error:smtp.server:"
-msgid "There are not SMTP server related at model %s"
-msgstr "No hay ningún servidor relacionado con el modelo %s"
-
 msgctxt "field:smtp.server,create_date:"
 msgid "Create Date"
-msgstr "Fecha creación"
+msgstr "Fecha de creación"
 
 msgctxt "field:smtp.server,create_uid:"
 msgid "Create User"
-msgstr "Usuario creación"
+msgstr "Usuario de creación"
 
 msgctxt "field:smtp.server,default:"
 msgid "Default"
@@ -47,8 +27,8 @@ msgid "Name"
 msgstr "Nombre"
 
 msgctxt "field:smtp.server,rec_name:"
-msgid "Name"
-msgstr "Nombre"
+msgid "Record Name"
+msgstr "Nombre del registro"
 
 msgctxt "field:smtp.server,smtp_email:"
 msgid "Email"
@@ -70,6 +50,10 @@ msgctxt "field:smtp.server,smtp_ssl:"
 msgid "SSL"
 msgstr "SSL"
 
+msgctxt "field:smtp.server,smtp_timeout:"
+msgid "Timeout"
+msgstr "Timeout"
+
 msgctxt "field:smtp.server,smtp_tls:"
 msgid "TLS"
 msgstr "TLS"
@@ -88,19 +72,19 @@ msgstr "Estado"
 
 msgctxt "field:smtp.server,write_date:"
 msgid "Write Date"
-msgstr "Fecha modificación"
+msgstr "Fecha de modificación"
 
 msgctxt "field:smtp.server,write_uid:"
 msgid "Write User"
-msgstr "Usuario modificación"
+msgstr "Usuario de modificación"
 
 msgctxt "field:smtp.server-ir.model,create_date:"
 msgid "Create Date"
-msgstr "Fecha creación"
+msgstr "Fecha de creación"
 
 msgctxt "field:smtp.server-ir.model,create_uid:"
 msgid "Create User"
-msgstr "Usuario creación"
+msgstr "Usuario de creación"
 
 msgctxt "field:smtp.server-ir.model,id:"
 msgid "ID"
@@ -111,8 +95,8 @@ msgid "Model"
 msgstr "Modelo"
 
 msgctxt "field:smtp.server-ir.model,rec_name:"
-msgid "Name"
-msgstr "Nombre"
+msgid "Record Name"
+msgstr "Nombre del registro"
 
 msgctxt "field:smtp.server-ir.model,server:"
 msgid "Server"
@@ -130,6 +114,10 @@ msgctxt "help:smtp.server,smtp_email:"
 msgid "Default From (if active this option) and Reply Email"
 msgstr ""
 "Correo por defecto en los envíos (si se activa esta opción) y como remitente"
+
+msgctxt "help:smtp.server,smtp_timeout:"
+msgid "Time in secods"
+msgstr "Tiempo en segundos"
 
 msgctxt "help:smtp.server,smtp_use_email:"
 msgid "Force to send emails using this email"
@@ -150,6 +138,50 @@ msgstr "Aprovado"
 msgctxt "model:ir.action.act_window.domain,name:act_server_form_domain_draft"
 msgid "Draft"
 msgstr "Borrador"
+
+msgctxt "model:ir.message,text:server_model_not_found"
+msgid "There are not SMTP server related at model %(model)s"
+msgstr "No hay ningún servidor relacionado con el modelo %(model)s"
+
+msgctxt "model:ir.message,text:smtp_error"
+msgid "SMTP Test Connection Failed."
+msgstr "SMTP Test ha fallado."
+
+msgctxt "model:ir.message,text:smtp_exception"
+msgid ""
+"SMTP Server exception (Email have not been sent):\n"
+"%(error)s"
+msgstr ""
+"SMTP Server exception (El correo no se ha enviado):\n"
+"%(error)s"
+
+msgctxt "model:ir.message,text:smtp_server_error"
+msgid "Error: could not connect to server. (Email have not been sent)"
+msgstr "No se puede conectar con el servidor. (El correo no se ha enviado)"
+
+msgctxt "model:ir.message,text:smtp_successful"
+msgid "SMTP Test connection was successful"
+msgstr "La connexión SMTP se ha realizado correctamente."
+
+msgctxt "model:ir.message,text:smtp_test_details"
+msgid ""
+"SMTP Test connection details:\n"
+"%(error)s"
+msgstr ""
+"SMTP Test detalles:\n"
+"%(error)s"
+
+msgctxt "model:ir.model.button,string:smtp_server_done_button"
+msgid "Confirm"
+msgstr "Confirmar"
+
+msgctxt "model:ir.model.button,string:smtp_server_draft_button"
+msgid "Draft"
+msgstr "Borrador"
+
+msgctxt "model:ir.model.button,string:smtp_server_get_smtp_test_button"
+msgid "Test Connection"
+msgstr "Test conexión"
 
 msgctxt "model:ir.ui.menu,name:menu_server_form"
 msgid "Servers"
@@ -180,25 +212,9 @@ msgid "Draft"
 msgstr "Borrador"
 
 msgctxt "view:smtp.server:"
-msgid "Confirm"
-msgstr "Confirmar"
-
-msgctxt "view:smtp.server:"
-msgid "Draft"
-msgstr "Borrador"
-
-msgctxt "view:smtp.server:"
 msgid "Models"
 msgstr "Modelos"
 
 msgctxt "view:smtp.server:"
-msgid "SMTP"
-msgstr "SMTP"
-
-msgctxt "view:smtp.server:"
 msgid "Server"
 msgstr "Servidor"
-
-msgctxt "view:smtp.server:"
-msgid "Test Connection"
-msgstr "Test conexión"

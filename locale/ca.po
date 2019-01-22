@@ -2,33 +2,13 @@
 msgid ""
 msgstr "Content-Type: text/plain; charset=utf-8\n"
 
-msgctxt "error:smtp.server:"
-msgid ""
-"SMTP Test Connection Details:\n"
-"%s"
-msgstr ""
-"Detalls test connexió SMTP:\n"
-"%s"
-
-msgctxt "error:smtp.server:"
-msgid "SMTP Test Connection Failed."
-msgstr "La connexió SMTP ha fallat."
-
-msgctxt "error:smtp.server:"
-msgid "SMTP Test Connection Was Successful"
-msgstr "La connexió SMTP s'ha realitzat correctament."
-
-msgctxt "error:smtp.server:"
-msgid "There are not SMTP server related at model %s"
-msgstr "No hi ha cap servidor SMTP relacionat amb el model %s."
-
 msgctxt "field:smtp.server,create_date:"
 msgid "Create Date"
-msgstr "Data creació"
+msgstr "Data de creació"
 
 msgctxt "field:smtp.server,create_uid:"
 msgid "Create User"
-msgstr "Usuari creació"
+msgstr "Usuari de creació"
 
 msgctxt "field:smtp.server,default:"
 msgid "Default"
@@ -47,8 +27,8 @@ msgid "Name"
 msgstr "Nom"
 
 msgctxt "field:smtp.server,rec_name:"
-msgid "Name"
-msgstr "Nom"
+msgid "Record Name"
+msgstr "Nom del registre"
 
 msgctxt "field:smtp.server,smtp_email:"
 msgid "Email"
@@ -70,6 +50,10 @@ msgctxt "field:smtp.server,smtp_ssl:"
 msgid "SSL"
 msgstr "SSL"
 
+msgctxt "field:smtp.server,smtp_timeout:"
+msgid "Timeout"
+msgstr "Timeout"
+
 msgctxt "field:smtp.server,smtp_tls:"
 msgid "TLS"
 msgstr "TLS"
@@ -88,19 +72,19 @@ msgstr "Estat"
 
 msgctxt "field:smtp.server,write_date:"
 msgid "Write Date"
-msgstr "Data modificació"
+msgstr "Data de modificació"
 
 msgctxt "field:smtp.server,write_uid:"
 msgid "Write User"
-msgstr "Usuari modificació"
+msgstr "Usuari de modificació"
 
 msgctxt "field:smtp.server-ir.model,create_date:"
 msgid "Create Date"
-msgstr "Data creació"
+msgstr "Data de creació"
 
 msgctxt "field:smtp.server-ir.model,create_uid:"
 msgid "Create User"
-msgstr "Usuari creació"
+msgstr "Usuari de creació"
 
 msgctxt "field:smtp.server-ir.model,id:"
 msgid "ID"
@@ -111,8 +95,8 @@ msgid "Model"
 msgstr "Model"
 
 msgctxt "field:smtp.server-ir.model,rec_name:"
-msgid "Name"
-msgstr "Nom"
+msgid "Record Name"
+msgstr "Nom del registre"
 
 msgctxt "field:smtp.server-ir.model,server:"
 msgid "Server"
@@ -120,17 +104,21 @@ msgstr "Servidor"
 
 msgctxt "field:smtp.server-ir.model,write_date:"
 msgid "Write Date"
-msgstr "Usuari creació"
+msgstr "Usuari de creació"
 
 msgctxt "field:smtp.server-ir.model,write_uid:"
 msgid "Write User"
-msgstr "Usuari modificació"
+msgstr "Usuari de modificació"
 
 msgctxt "help:smtp.server,smtp_email:"
 msgid "Default From (if active this option) and Reply Email"
 msgstr ""
 "Correu per defecte en l'enviament (si s'activa aquesta opció) i correu per "
 "respondre"
+
+msgctxt "help:smtp.server,smtp_timeout:"
+msgid "Time in secods"
+msgstr "Temps en segons"
 
 msgctxt "help:smtp.server,smtp_use_email:"
 msgid "Force to send emails using this email"
@@ -151,6 +139,50 @@ msgstr "Aprovat"
 msgctxt "model:ir.action.act_window.domain,name:act_server_form_domain_draft"
 msgid "Draft"
 msgstr "Esborrany"
+
+msgctxt "model:ir.message,text:server_model_not_found"
+msgid "There are not SMTP server related at model %(model)s"
+msgstr "No hi ha cap servidor SMTP relacionat amb el model %(model)s."
+
+msgctxt "model:ir.message,text:smtp_error"
+msgid "SMTP Test Connection Failed."
+msgstr "La connexió SMTP ha fallat."
+
+msgctxt "model:ir.message,text:smtp_exception"
+msgid ""
+"SMTP Server exception (Email have not been sent):\n"
+"%(error)s"
+msgstr ""
+"SMTP Server exception (El correu no s'ha enviat):\n"
+"%(error)s"
+
+msgctxt "model:ir.message,text:smtp_server_error"
+msgid "Error: could not connect to server. (Email have not been sent)"
+msgstr "Error: no es pot connectar al servidor. (El correu no s'ha enviat)"
+
+msgctxt "model:ir.message,text:smtp_successful"
+msgid "SMTP Test connection was successful"
+msgstr "La connexió SMTP s'ha realitzat correctament."
+
+msgctxt "model:ir.message,text:smtp_test_details"
+msgid ""
+"SMTP Test connection details:\n"
+"%(error)s"
+msgstr ""
+"SMTP Test detalls:\n"
+"%(error)s"
+
+msgctxt "model:ir.model.button,string:smtp_server_done_button"
+msgid "Confirm"
+msgstr "Confirma"
+
+msgctxt "model:ir.model.button,string:smtp_server_draft_button"
+msgid "Draft"
+msgstr "Esborrany"
+
+msgctxt "model:ir.model.button,string:smtp_server_get_smtp_test_button"
+msgid "Test Connection"
+msgstr "Test de connexió"
 
 msgctxt "model:ir.ui.menu,name:menu_server_form"
 msgid "Servers"
@@ -181,25 +213,9 @@ msgid "Draft"
 msgstr "Esborrany"
 
 msgctxt "view:smtp.server:"
-msgid "Confirm"
-msgstr "Confirma"
-
-msgctxt "view:smtp.server:"
-msgid "Draft"
-msgstr "Esborrany"
-
-msgctxt "view:smtp.server:"
 msgid "Models"
 msgstr "Models"
 
 msgctxt "view:smtp.server:"
-msgid "SMTP"
-msgstr "SMTP"
-
-msgctxt "view:smtp.server:"
 msgid "Server"
 msgstr "Servidor"
-
-msgctxt "view:smtp.server:"
-msgid "Test Connection"
-msgstr "Test connexió"
