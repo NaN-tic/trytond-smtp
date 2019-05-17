@@ -1,0 +1,238 @@
+#
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "field:smtp.server,create_date:"
+msgid "Create Date"
+msgstr "Erstellungsdatum"
+
+msgctxt "field:smtp.server,create_uid:"
+msgid "Create User"
+msgstr "Erstellt durch"
+
+msgctxt "field:smtp.server,default:"
+msgid "Default"
+msgstr "Standard"
+
+msgctxt "field:smtp.server,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:smtp.server,models:"
+msgid "Models"
+msgstr "Modelle"
+
+msgctxt "field:smtp.server,name:"
+msgid "Name"
+msgstr "Name"
+
+msgctxt "field:smtp.server,rec_name:"
+msgid "Record Name"
+msgstr "Name"
+
+msgctxt "field:smtp.server,smtp_email:"
+msgid "Email"
+msgstr "E-Mail"
+
+msgctxt "field:smtp.server,smtp_password:"
+msgid "Password"
+msgstr "Passwort"
+
+msgctxt "field:smtp.server,smtp_port:"
+msgid "Port"
+msgstr "Port"
+
+msgctxt "field:smtp.server,smtp_server:"
+msgid "Server"
+msgstr "Server"
+
+msgctxt "field:smtp.server,smtp_ssl:"
+msgid "SSL"
+msgstr "SSL"
+
+msgctxt "field:smtp.server,smtp_timeout:"
+msgid "Timeout"
+msgstr "Timeout"
+
+msgctxt "field:smtp.server,smtp_tls:"
+msgid "TLS"
+msgstr "TLS"
+
+msgctxt "field:smtp.server,smtp_use_email:"
+msgid "Use email"
+msgstr "E-Mail verwenden"
+
+msgctxt "field:smtp.server,smtp_user:"
+msgid "User"
+msgstr "Benutzer"
+
+msgctxt "field:smtp.server,state:"
+msgid "State"
+msgstr "Status"
+
+msgctxt "field:smtp.server,write_date:"
+msgid "Write Date"
+msgstr "Zuletzt geändert"
+
+msgctxt "field:smtp.server,write_uid:"
+msgid "Write User"
+msgstr "Letzte Änderung durch"
+
+msgctxt "field:smtp.server-ir.model,create_date:"
+msgid "Create Date"
+msgstr "Erstellungsdatum"
+
+msgctxt "field:smtp.server-ir.model,create_uid:"
+msgid "Create User"
+msgstr "Erstellt durch"
+
+msgctxt "field:smtp.server-ir.model,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:smtp.server-ir.model,model:"
+msgid "Model"
+msgstr "Modell"
+
+msgctxt "field:smtp.server-ir.model,rec_name:"
+msgid "Record Name"
+msgstr "Name"
+
+msgctxt "field:smtp.server-ir.model,server:"
+msgid "Server"
+msgstr "Server"
+
+msgctxt "field:smtp.server-ir.model,write_date:"
+msgid "Write Date"
+msgstr "Zuletzt geändert"
+
+msgctxt "field:smtp.server-ir.model,write_uid:"
+msgid "Write User"
+msgstr "Letzte Änderung durch"
+
+msgctxt "help:smtp.server,smtp_email:"
+msgid "Default From (if active this option) and Reply Email"
+msgstr "Standard From- und Reply-Adresse (wenn diese Option akiviert ist)"
+
+msgctxt "help:smtp.server,smtp_timeout:"
+msgid "Time in secods"
+msgstr "Zeit (in Sekunden)"
+
+msgctxt "help:smtp.server,smtp_use_email:"
+msgid "Force to send emails using this email"
+msgstr "E-Mails immer mit dieser Adresse senden"
+
+msgctxt "model:ir.action,name:act_server_form"
+msgid "Servers"
+msgstr "Server"
+
+msgctxt "model:ir.action.act_window.domain,name:act_server_form_domain_all"
+msgid "All"
+msgstr "Alle"
+
+msgctxt "model:ir.action.act_window.domain,name:act_server_form_domain_done"
+msgid "Done"
+msgstr "Erledigt"
+
+msgctxt "model:ir.action.act_window.domain,name:act_server_form_domain_draft"
+msgid "Draft"
+msgstr "Entwurf"
+
+msgctxt "model:ir.message,text:server_model_not_found"
+msgid "There are not SMTP server related at model %(model)s"
+msgstr "Es ist kein SMTP-Server mit Modell %(model)s verknüpft"
+
+msgctxt "model:ir.message,text:smtp_error"
+msgid "SMTP Test Connection Failed."
+msgstr "SMTP-Testverbindung mislungen"
+
+msgctxt "model:ir.message,text:smtp_exception"
+msgid ""
+"SMTP Server exception (Email have not been sent):\n"
+"%(error)s"
+msgstr ""
+"SMTP-Server Ausnahme (Mails wurden nicht verschickt):\n"
+"%(error)s"
+
+msgctxt "model:ir.message,text:smtp_server_error"
+msgid "Error: could not connect to server. (Email have not been sent)"
+msgstr ""
+"Fehler: Konnte nicht mit dem Server verbinden. (Mails wurden nicht "
+"verschickt)."
+
+msgctxt "model:ir.message,text:smtp_successful"
+msgid "SMTP Test connection was successful"
+msgstr "SMTP-Testverbindung erfolgreich"
+
+msgctxt "model:ir.message,text:smtp_test_details"
+msgid ""
+"SMTP Test connection details:\n"
+"%(error)s"
+msgstr ""
+"SMTP-Testverbindung Details:\n"
+"%(error)s"
+
+msgctxt "model:ir.model.button,string:smtp_server_done_button"
+msgid "Confirm"
+msgstr "Bestätigen"
+
+#, fuzzy
+msgctxt "model:ir.model.button,string:smtp_server_draft_button"
+msgid "Draft"
+msgstr "Entwurf"
+
+msgctxt "model:ir.model.button,string:smtp_server_get_smtp_test_button"
+msgid "Test Connection"
+msgstr "Testverbindung"
+
+msgctxt "model:ir.ui.menu,name:menu_server_form"
+msgid "Servers"
+msgstr "Server"
+
+msgctxt "model:ir.ui.menu,name:menu_smtp"
+msgid "SMTP"
+msgstr "SMTP"
+
+msgctxt "model:res.group,name:group_smtp_admin"
+msgid "SMTP Administration"
+msgstr "SMTP Administration"
+
+msgctxt "model:smtp.server,name:"
+msgid "SMTP Servers"
+msgstr "SMTP Server"
+
+msgctxt "model:smtp.server-ir.model,name:"
+msgid "SMTP Server - Model"
+msgstr "SMTP Server - Modell"
+
+msgctxt "selection:smtp.server,state:"
+msgid "Done"
+msgstr "Erledigt"
+
+msgctxt "selection:smtp.server,state:"
+msgid "Draft"
+msgstr "Entwurf"
+
+msgctxt "view:smtp.server:"
+msgid "Confirm"
+msgstr "Bestätigen"
+
+msgctxt "view:smtp.server:"
+msgid "Draft"
+msgstr "Entwurf"
+
+msgctxt "view:smtp.server:"
+msgid "Models"
+msgstr "Modelle"
+
+msgctxt "view:smtp.server:"
+msgid "SMTP"
+msgstr "SMTP"
+
+msgctxt "view:smtp.server:"
+msgid "Server"
+msgstr "Server"
+
+msgctxt "view:smtp.server:"
+msgid "Test Connection"
+msgstr "Testverbindung"
