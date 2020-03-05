@@ -9,7 +9,7 @@ Example send email:
 
     servers = SMTP.search([('state','=','done'),('default','=',True)])
     if not len(servers)>0:
-        self.raise_user_error('smtp_server_default')
+        raise UserError(gettext('module.msg_smtp_server_default'))
     server = servers[0]
 
     try:
@@ -17,5 +17,6 @@ Example send email:
         server.sendmail('from', 'to', 'body')
         server.quit()
     except:
-        self.raise_user_error('smtp_error')
+        raise UserError(gettext('module.msg_smtp_error'))
+
     return True

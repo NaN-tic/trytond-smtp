@@ -3,7 +3,7 @@ SMTP. Envío de correo
 =====================
 
 Este módulo permite dar de alta servidores para el envío de correos
-electrónicos mediante el protocolo SMTP. 
+electrónicos mediante el protocolo SMTP.
 
 Este módulos sirve de base para que otros módulos puedan enviar correos
 electrónicos, como por ejemplo el módulo **Plantillas correo electrónico**.
@@ -36,16 +36,17 @@ API
 .. code:: python
 
     SMTP = Pool().get('smtp.server')
-    
+
     servers = SMTP.search([('state','=','done'),('default','=',True)])
     if not len(servers)>0:
-        self.raise_user_error('smtp_server_default')
+        raise UserError(gettext('module.msg_smtp_server_default'))
     server = servers[0]
-    
+
     try:
         server = SMTP.get_smtp_server(server)
         server.sendmail('from', 'to', 'body')
         server.quit()
     except:
-        self.raise_user_error('smtp_error')
+        raise UserError(gettext('module.msg_smtp_error'))
+
     return True
