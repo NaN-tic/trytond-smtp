@@ -170,8 +170,6 @@ class SmtpServer(ModelSQL, ModelView):
         return servers[0].server
 
     def send_mail(self, from_, cc, email):
-        # TODO:
-        #  On py3 the exceptions change.
         try:
             smtp_server = self.get_smtp_server()
             smtp_server.sendmail(from_, cc, email)
