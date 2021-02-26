@@ -176,7 +176,6 @@ msgctxt "model:ir.model.button,string:smtp_server_done_button"
 msgid "Confirm"
 msgstr "Bestätigen"
 
-#, fuzzy
 msgctxt "model:ir.model.button,string:smtp_server_draft_button"
 msgid "Draft"
 msgstr "Entwurf"
@@ -214,25 +213,9 @@ msgid "Draft"
 msgstr "Entwurf"
 
 msgctxt "view:smtp.server:"
-msgid "Confirm"
-msgstr "Bestätigen"
-
-msgctxt "view:smtp.server:"
-msgid "Draft"
-msgstr "Entwurf"
-
-msgctxt "view:smtp.server:"
 msgid "Models"
 msgstr "Modelle"
 
 msgctxt "view:smtp.server:"
-msgid "SMTP"
-msgstr "SMTP"
-
-msgctxt "view:smtp.server:"
 msgid "Server"
 msgstr "Server"
-
-msgctxt "view:smtp.server:"
-msgid "Test Connection"
-msgstr "Testverbindung"
