@@ -39,7 +39,7 @@ class SmtpServer(ModelSQL, ModelView):
         states={
             'readonly': (Eval('state') != 'draft'),
             }, depends=['state'])
-    smtp_password = fields.Char('Password',
+    smtp_password = fields.Char('Password', strip=False,
         states={
             'readonly': (Eval('state') != 'draft'),
             }, depends=['state'])
