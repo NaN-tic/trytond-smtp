@@ -188,6 +188,6 @@ class SmtpServerModel(ModelSQL):
     _table = 'smtp_server_ir_model'
 
     server = fields.Many2One('smtp.server', 'Server', ondelete='CASCADE',
-        select=True, required=True)
+        required=True)
     model = fields.Many2One('ir.model', 'Model', ondelete='RESTRICT',
-        select=True, required=True)
+        required=True)
