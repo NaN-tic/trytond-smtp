@@ -1,6 +1,7 @@
 # This file is part smtp module for Tryton.
 # The COPYRIGHT file at the top level of this repository contains
 # the full copyright notices and license terms.
+import logging
 from trytond.model import ModelView, ModelSQL, fields
 from trytond.pool import Pool
 from trytond.pyson import Eval
@@ -8,7 +9,7 @@ import smtplib
 from trytond.i18n import gettext
 from trytond.exceptions import UserError
 
-__all__ = ['SmtpServer', 'SmtpServerModel']
+logger = logging.getLogger(__name__)
 
 
 class SmtpServer(ModelSQL, ModelView):
@@ -125,10 +126,9 @@ class SmtpServer(ModelSQL, ModelView):
             try:
                 server.get_smtp_server()
             except Exception as message:
+                logger.error('Exception getting smtp server: %s', message)
                 raise UserError(gettext('smtp.smtp_test_details',
                     error=message))
-            except:
-                raise UserError(gettext('smtp.smtp_error'))
             raise UserError(gettext('smtp.smtp_successful'))
 
     def get_smtp_server(self):
@@ -165,6 +165,7 @@ class SmtpServer(ModelSQL, ModelView):
                 ('model', '=', model),
                 ], limit=1)
         if not servers:
+            logger.warning('No SMTP server found for model %s' % model)
             raise UserError(gettext(
                 'smtp.server_model_not_found', model=model.name))
         return servers[0].server
@@ -172,12 +173,14 @@ class SmtpServer(ModelSQL, ModelView):
     def send_mail(self, from_, cc, email):
         try:
             smtp_server = self.get_smtp_server()
-            smtp_server.sendmail(from_, cc, email)
+            issues = smtp_server.sendmail(from_, cc, email)
             smtp_server.quit()
             return True
         except smtplib.SMTPException as error:
+            logger.error('SMTPException: %s', error)
             raise UserError(gettext('smtp.smtp_exception', error=error))
         except smtplib.socket.error as error:
+            logger.error('socket.error: %s', error)
             raise UserError(gettext('smtp.smtp_server_error', error=error))
         return False
 
