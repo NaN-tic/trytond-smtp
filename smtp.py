@@ -173,7 +173,7 @@ class SmtpServer(ModelSQL, ModelView):
     def send_mail(self, from_, cc, email):
         try:
             smtp_server = self.get_smtp_server()
-            issues = smtp_server.sendmail(from_, cc, email)
+            smtp_server.sendmail(from_, cc, email)
             smtp_server.quit()
             return True
         except smtplib.SMTPException as error:
