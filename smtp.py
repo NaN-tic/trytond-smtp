@@ -179,6 +179,9 @@ class SmtpServer(ModelSQL, ModelView):
             raise UserError(gettext('smtp.smtp_exception', error=error))
         except smtplib.socket.error as error:
             raise UserError(gettext('smtp.smtp_server_error', error=error))
+        except smtplib.SMTPRecipientsRefused as error:
+            logger.error('socket.error: %s', error)
+            raise UserError(gettext('smtp.smtp_server_error', error=error))
         return False
 
 
