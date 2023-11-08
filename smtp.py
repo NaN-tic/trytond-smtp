@@ -173,13 +173,16 @@ class SmtpServer(ModelSQL, ModelView):
     def send_mail(self, from_, cc, email):
         try:
             smtp_server = self.get_smtp_server()
-            issues = smtp_server.sendmail(from_, cc, email)
+            smtp_server.sendmail(from_, cc, email)
             smtp_server.quit()
             return True
         except smtplib.SMTPException as error:
             logger.error('SMTPException: %s', error)
             raise UserError(gettext('smtp.smtp_exception', error=error))
         except smtplib.socket.error as error:
+            logger.error('socket.error: %s', error)
+            raise UserError(gettext('smtp.smtp_server_error', error=error))
+        except smtplib.SMTPRecipientsRefused as error:
             logger.error('socket.error: %s', error)
             raise UserError(gettext('smtp.smtp_server_error', error=error))
         return False
