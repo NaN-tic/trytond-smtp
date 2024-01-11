@@ -19,39 +19,39 @@ class SmtpServer(ModelSQL, ModelView):
     smtp_server = fields.Char('Server', required=True,
         states={
             'readonly': (Eval('state') != 'draft'),
-            }, depends=['state'])
+            })
     smtp_timeout = fields.Integer('Timeout', required=True,
         states={
             'readonly': (Eval('state') != 'draft'),
-            }, depends=['state'], help="Time in secods")
+            }, help="Time in secods")
     smtp_port = fields.Integer('Port', required=True,
         states={
             'readonly': (Eval('state') != 'draft'),
-            }, depends=['state'])
+            })
     smtp_ssl = fields.Boolean('SSL',
         states={
             'readonly': (Eval('state') != 'draft'),
-            }, depends=['state'])
+            })
     smtp_tls = fields.Boolean('TLS',
         states={
             'readonly': (Eval('state') != 'draft'),
-            }, depends=['state'])
+            })
     smtp_user = fields.Char('User',
         states={
             'readonly': (Eval('state') != 'draft'),
-            }, depends=['state'])
+            })
     smtp_password = fields.Char('Password', strip=False,
         states={
             'readonly': (Eval('state') != 'draft'),
-            }, depends=['state'])
+            })
     smtp_use_email = fields.Boolean('Use email',
         states={
             'readonly': (Eval('state') != 'draft'),
-            }, depends=['state'], help='Force to send emails using this email')
+            }, help='Force to send emails using this email')
     smtp_email = fields.Char('Email', required=True,
         states={
             'readonly': (Eval('state') != 'draft'),
-            }, depends=['state'],
+            },
         help='Default From (if active this option) and Reply Email')
     state = fields.Selection([
             ('draft', 'Draft'),
