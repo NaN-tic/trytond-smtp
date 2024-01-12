@@ -62,8 +62,7 @@ class SmtpServer(ModelSQL, ModelView):
             'server', 'model', 'Models',
         states={
             'readonly': Eval('state').in_(['done']),
-            },
-        depends=['state'])
+            })
 
     @classmethod
     def __setup__(cls):
