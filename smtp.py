@@ -2,6 +2,7 @@
 # The COPYRIGHT file at the top level of this repository contains
 # the full copyright notices and license terms.
 import logging
+from trytond.config import config
 from trytond.model import ModelView, ModelSQL, fields
 from trytond.pool import Pool
 from trytond.pyson import Eval
@@ -10,6 +11,7 @@ from trytond.i18n import gettext
 from trytond.exceptions import UserError
 
 logger = logging.getLogger(__name__)
+PRODUCTION_ENV = config.getboolean('database', 'production', default=False)
 
 
 class SmtpServer(ModelSQL, ModelView):
@@ -170,6 +172,10 @@ class SmtpServer(ModelSQL, ModelView):
         return servers[0].server
 
     def send_mail(self, from_, cc, email):
+        if not PRODUCTION_ENV:
+            logger.warning('Production mode is not enabled.')
+            return
+
         try:
             smtp_server = self.get_smtp_server()
             smtp_server.sendmail(from_, cc, email)
