@@ -172,8 +172,8 @@ class SmtpServer(ModelSQL, ModelView):
         return servers[0].server
 
     def send_mail(self, from_, cc, email):
-        if not PRODUCTION_ENV:
-            logger.warning('Production mode is not enabled.')
+        if not PRODUCTION_ENV and not self.smtp_server.startswith('sendria'):
+            logger.warning('Production mode is not enabled or not sendria SMTP.')
             return
 
         try:
