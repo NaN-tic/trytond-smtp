@@ -4,11 +4,11 @@
 import logging
 from trytond.config import config
 from trytond.model import ModelView, ModelSQL, fields
-from trytond.pool import Pool
 from trytond.pyson import Eval
 import smtplib
 from trytond.i18n import gettext
 from trytond.exceptions import UserError
+from trytond.tools import get_smtp_server
 
 logger = logging.getLogger(__name__)
 PRODUCTION_ENV = config.getboolean('database', 'production', default=False)
@@ -139,6 +139,9 @@ class SmtpServer(ModelSQL, ModelView):
         :return: A SMTP instance. The quit() method must be call when all
         the calls to sendmail() have been made.
         """
+        if not PRODUCTION_ENV:
+            return get_smtp_server()
+
         if self.smtp_ssl:
             smtp_server = smtplib.SMTP_SSL(self.smtp_server, self.smtp_port,
                 timeout=self.smtp_timeout)
@@ -154,28 +157,7 @@ class SmtpServer(ModelSQL, ModelView):
 
         return smtp_server
 
-    @classmethod
-    def get_smtp_server_from_model(self, model):
-        """
-        Return Server from Models
-        :param model: str Model name
-        return object server
-        """
-        model = Pool().get('ir.model').search([('model', '=', model)])[0]
-        servers = Pool().get('smtp.server-ir.model').search([
-                ('model', '=', model),
-                ], limit=1)
-        if not servers:
-            logger.warning('No SMTP server found for model %s' % model)
-            raise UserError(gettext(
-                'smtp.server_model_not_found', model=model.name))
-        return servers[0].server
-
     def send_mail(self, from_, cc, email):
-        if not PRODUCTION_ENV and not self.smtp_server.startswith('sendria'):
-            logger.warning('Production mode is not enabled or not sendria SMTP.')
-            return
-
         try:
             smtp_server = self.get_smtp_server()
             smtp_server.sendmail(from_, cc, email)
@@ -188,6 +170,9 @@ class SmtpServer(ModelSQL, ModelView):
             logger.error('socket.error: %s', error)
             raise UserError(gettext('smtp.smtp_server_error', error=error))
         except smtplib.SMTPRecipientsRefused as error:
+            logger.error('socket.error: %s', error)
+            raise UserError(gettext('smtp.smtp_server_error', error=error))
+        except AttributeError as error:
             logger.error('socket.error: %s', error)
             raise UserError(gettext('smtp.smtp_server_error', error=error))
         return False
