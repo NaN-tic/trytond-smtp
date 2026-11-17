@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<tryton>
+  <data depends="electronic_mail">
+    <record model="ir.ui.view" id="direct_server_form">
+      <field name="model">smtp.server</field>
+      <field name="inherit" ref="smtp.server_view_form"/>
+      <field name="name">direct_server_form</field>
+    </record>
+    <record model="ir.ui.view" id="direct_mail_form">
+      <field name="model">electronic.mail</field>
+      <field name="inherit" ref="electronic_mail.mail_view_form"/>
+      <field name="name">direct_mail_form</field>
+    </record>
+    <record model="ir.action.act_window" id="act_direct_outbox">
+      <field name="name">Direct Mail Outbox</field>
+      <field name="res_model">electronic.mail</field>
+      <field name="domain" eval="[('direct_deliveries', '!=', None)]" pyson="1"/>
+    </record>
+    <record model="ir.ui.view" id="direct_mail_tree">
+      <field name="model">electronic.mail</field>
+      <field name="type">tree</field>
+      <field name="name">direct_mail_tree</field>
+    </record>
+    <record model="ir.action.act_window.view" id="act_direct_outbox_tree">
+      <field name="sequence" eval="10"/>
+      <field name="view" ref="direct_mail_tree"/>
+      <field name="act_window" ref="act_direct_outbox"/>
+    </record>
+    <menuitem id="menu_direct_outbox" parent="smtp.menu_smtp"
+      action="act_direct_outbox"/>
+    <record model="ir.model.button" id="mail_send">
+      <field name="model">electronic.mail</field>
+      <field name="name">send_mail</field>
+      <field name="string">Send Email</field>
+    </record>
+    <record model="ir.model.button" id="mail_cancel_direct">
+      <field name="model">electronic.mail</field>
+      <field name="name">cancel_direct</field>
+      <field name="string">Cancel Pending Deliveries</field>
+    </record>
+    <record model="ir.model.button" id="mail_retry_direct">
+      <field name="model">electronic.mail</field>
+      <field name="name">retry_direct</field>
+      <field name="string">Retry Unsent / Uncertain Recipients</field>
+    </record>
+    <record model="ir.model.button-res.group" id="mail_cancel_direct_group">
+      <field name="button" ref="mail_cancel_direct"/>
+      <field name="group" ref="smtp.group_smtp_admin"/>
+    </record>
+    <record model="ir.model.button-res.group" id="mail_retry_direct_group">
+      <field name="button" ref="mail_retry_direct"/>
+      <field name="group" ref="smtp.group_smtp_admin"/>
+    </record>
+    <record model="ir.ui.view" id="direct_delivery_tree">
+      <field name="model">electronic.mail.direct</field>
+      <field name="type">tree</field>
+      <field name="name">direct_delivery_tree</field>
+    </record>
+    <record model="ir.ui.view" id="direct_delivery_form">
+      <field name="model">electronic.mail.direct</field>
+      <field name="type">form</field>
+      <field name="name">direct_delivery_form</field>
+    </record>
+    <record model="ir.model.access" id="access_direct_delivery">
+      <field name="model">electronic.mail.direct</field>
+      <field name="perm_read" eval="True"/>
+      <field name="perm_write" eval="False"/>
+      <field name="perm_create" eval="False"/>
+      <field name="perm_delete" eval="False"/>
+    </record>
+  </data>
+</tryton>

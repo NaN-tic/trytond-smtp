@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<form>
+  <label name="mail"/><field name="mail"/>
+  <label name="recipient"/><field name="recipient"/>
+  <label name="state"/><field name="state"/>
+  <label name="attempts"/><field name="attempts"/>
+  <label name="next_attempt"/><field name="next_attempt"/>
+  <label name="expires"/><field name="expires"/>
+  <label name="started"/><field name="started"/>
+  <separator name="error" colspan="4"/>
+  <field name="error" colspan="4"/>
+  <separator name="history" colspan="4"/>
+  <field name="history" colspan="4"/>
+</form>
