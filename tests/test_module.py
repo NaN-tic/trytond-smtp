@@ -8,6 +8,7 @@ from trytond.tests.test_tryton import ModuleTestCase
 class SmtpTestCase(ModuleTestCase):
     'Test Smtp module'
     module = 'smtp'
+    extras = ['electronic_mail']
 
 
 del ModuleTestCase

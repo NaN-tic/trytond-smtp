@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<data>
+  <xpath expr="/form/group[@id='send_area']/field[@name='flag_received']" position="after">
+    <button name="send_mail" icon="tryton-ok"/>
+  </xpath>
+  <xpath expr="/form/group[@id='content']/notebook" position="inside">
+    <page string="Delivery" id="direct_delivery">
+      <label name="delivery_server"/><field name="delivery_server"/>
+      <label name="delivery_state"/><field name="delivery_state"/>
+      <label name="delivery_due"/><field name="delivery_due"/>
+      <label name="delivery_expires"/><field name="delivery_expires"/>
+      <label name="delivery_envelope"/><field name="delivery_envelope"/>
+      <field name="direct_deliveries" colspan="4"/>
+      <button name="cancel_direct"/>
+      <button name="retry_direct"/>
+    </page>
+  </xpath>
+</data>

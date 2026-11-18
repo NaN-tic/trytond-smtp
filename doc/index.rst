@@ -20,3 +20,7 @@ Example send email:
         raise UserError(gettext('module.msg_smtp_error'))
 
     return True
+
+.. toctree::
+
+   direct_delivery

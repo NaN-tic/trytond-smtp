@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<tree>
+  <field name="recipient"/>
+  <field name="state"/>
+  <field name="attempts"/>
+  <field name="next_attempt"/>
+  <field name="expires"/>
+  <field name="error"/>
+</tree>

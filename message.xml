@@ -23,5 +23,8 @@ this repository contains the full copyright notices and license terms. -->
       <record model="ir.message" id="smtp_server_error">
           <field name="text">Error: could not connect to server. (Email have not been sent)</field>
       </record>
+      <record model="ir.message" id="msg_direct_recipient_unique">
+          <field name="text">A direct delivery already exists for this mail and recipient.</field>
+      </record>
     </data>
 </tryton>

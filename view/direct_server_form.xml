@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<data>
+  <xpath expr="/form/notebook" position="inside">
+    <page string="Direct Delivery" id="direct_delivery">
+      <label name="direct_delivery"/><field name="direct_delivery"/>
+      <label name="direct_domain"/><field name="direct_domain"/>
+      <label name="direct_hostname"/><field name="direct_hostname"/>
+      <label name="direct_selector"/><field name="direct_selector"/>
+      <label name="direct_key"/><field name="direct_key"/>
+      <label name="direct_mailbox"/><field name="direct_mailbox"/>
+      <label name="direct_require_tls"/><field name="direct_require_tls"/>
+      <separator name="direct_dns" colspan="4"/>
+      <field name="direct_dns" colspan="4"/>
+    </page>
+  </xpath>
+</data>
